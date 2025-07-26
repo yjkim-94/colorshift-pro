@@ -1,0 +1,712 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.2rem;
+}
+
+.tagline {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #667eea;
+}
+
+/* Main Content */
+.main {
+    margin-top: 100px;
+    padding: 2rem 0;
+}
+
+/* Hero Section */
+.hero {
+    padding: 3rem 0;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tool Container */
+.tool-container {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Upload Section */
+.drop-zone {
+    border: 3px dashed #ddd;
+    border-radius: 15px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #fafafa;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+    border-color: #667eea;
+    background: #f0f4ff;
+    transform: translateY(-2px);
+}
+
+.drop-zone-content svg {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.drop-zone-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.drop-zone-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.browse-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    min-height: 44px; /* iOS minimum touch target */
+}
+
+.browse-btn:hover {
+    background: #5a6fd8;
+}
+
+/* Editor Section */
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    min-height: 400px;
+}
+
+#canvas {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls */
+.controls {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.controls h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Color Input Group */
+.color-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.control-group input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.control-group input[type="text"] {
+    width: 100px;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: border-color 0.3s ease;
+}
+
+.control-group input[type="text"]:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.control-group input[type="text"].invalid {
+    border-color: #dc3545;
+    background: #fee;
+}
+
+
+.control-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.color-preview {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    vertical-align: middle;
+}
+
+.eyedropper-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+}
+
+.eyedropper-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-1px);
+}
+
+.eyedropper-btn.active {
+    background: #f39c12;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+.eyedropper-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Eyedropper cursor */
+.canvas-eyedropper {
+    cursor: crosshair !important;
+}
+
+.canvas-eyedropper:hover {
+    cursor: crosshair !important;
+}
+
+/* Tolerance Controls */
+.tolerance-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#tolerance-value {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 30px;
+}
+
+.tolerance-help {
+    display: block;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-top: 0.3rem;
+}
+
+/* Color Presets */
+.preset-colors h4 {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.color-presets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.preset-color {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.preset-color:hover {
+    transform: scale(1.1);
+    border-color: #667eea;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+/* Ad Space */
+.ad-space {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 160px;
+    z-index: 100;
+}
+
+.ad-placeholder {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content Sections */
+.how-it-works,
+.features,
+.faq {
+    background: white;
+    margin: 3rem auto;
+    padding: 3rem 0;
+    border-radius: 20px;
+    max-width: 1200px;
+}
+
+.how-it-works h2,
+.features h2,
+.faq h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* Steps */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.step {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    background: #f8f9fa;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.step h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #667eea;
+}
+
+/* FAQ */
+.faq-items {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.faq-item h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem 0;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    padding: 1rem 0;
+    text-align: center;
+    color: #bdc3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav ul {
+        gap: 1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .tool-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .editor-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .controls {
+        order: -1;
+    }
+
+    .ad-space {
+        position: static;
+        width: 100%;
+        margin: 2rem 0;
+        transform: none;
+    }
+
+    .ad-placeholder {
+        min-height: 200px;
+        width: 100%;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .faq-items {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .tool-container {
+        border-radius: 15px;
+        padding: 1rem;
+    }
+
+    .drop-zone {
+        padding: 2rem 1rem;
+    }
+
+    .color-presets {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.3rem;
+    }
+
+    .preset-color {
+        width: 35px;
+        height: 35px;
+    }
+
+    .color-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .eyedropper-btn {
+        min-width: 35px;
+        height: 35px;
+        padding: 0.3rem;
+    }
+
+    .control-group input[type="text"] {
+        width: 120px;
+    }
+
+    .tolerance-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Loading and Animation States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Success/Error states */
+.success {
+    border-color: #28a745 !important;
+    background: #d4edda !important;
+}
+
+.error {
+    border-color: #dc3545 !important;
+    background: #f8d7da !important;
+}

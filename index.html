@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PNG color changer tool. Upload your PNG images and change colors instantly. Download modified images for free.">
+    <meta name="keywords" content="PNG color changer, image color editor, photo color modifier, online image tool">
+    <meta name="author" content="ColorShift Pro">
+    <title>ColorShift Pro - Free PNG Color Changer Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>ColorShift Pro</h1>
+                <span class="tagline">Transform Your Images</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Change PNG Colors Instantly</h2>
+                    <p>Upload your PNG images and transform their colors with our powerful online tool. Free, fast, and easy to use.</p>
+                </div>
+                
+                <div class="tool-container">
+                    <div class="upload-section">
+                        <div id="drop-zone" class="drop-zone">
+                            <div class="drop-zone-content">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7,10 12,15 17,10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                <h3>Drop your PNG file here</h3>
+                                <p>or click to browse files</p>
+                                <button type="button" class="browse-btn">Choose File</button>
+                            </div>
+                            <input type="file" id="file-input" accept="image/png,.png" capture="environment" hidden>
+                        </div>
+                    </div>
+
+                    <div class="editor-section" id="editor-section" style="display: none;">
+                        <div class="editor-container">
+                            <div class="canvas-container">
+                                <canvas id="canvas"></canvas>
+                            </div>
+                            
+                            <div class="controls">
+                                <div class="color-controls">
+                                    <h3>Color Settings</h3>
+                                    
+                                    <div class="control-group">
+                                        <label for="target-color">Target Color to Change:</label>
+                                        <div class="color-input-group">
+                                            <input type="color" id="target-color" value="#000000">
+                                            <input type="text" id="target-hex" value="#000000" placeholder="#000000" maxlength="7">
+                                            <span class="color-preview" id="target-preview"></span>
+                                            <button type="button" id="eyedropper-btn" class="eyedropper-btn" title="Pick color from image">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="m2 22 1-1h3l9-9"></path>
+                                                    <path d="M3 21v-3l9-9"></path>
+                                                    <path d="m15 6 3.5-3.5a2.12 2.12 0 0 1 3 3L18 9l.5.5-3.5 3.5L15 13l-4 4H7v-4L15 6z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        <label for="new-color">New Color:</label>
+                                        <div class="color-input-group">
+                                            <input type="color" id="new-color" value="#ff0000">
+                                            <input type="text" id="new-hex" value="#ff0000" placeholder="#ff0000" maxlength="7">
+                                            <span class="color-preview" id="new-preview"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        <label for="tolerance">Color Tolerance:</label>
+                                        <div class="tolerance-container">
+                                            <input type="range" id="tolerance" min="0" max="100" value="80">
+                                            <span id="tolerance-value">80</span>
+                                        </div>
+                                        <small class="tolerance-help">
+                                            80 value typically provides the best results for most images.
+                                        </small>
+                                    </div>
+                                    
+                                    <div class="preset-colors">
+                                        <h4>Quick Colors</h4>
+                                        <div class="color-presets">
+                                            <button class="preset-color" data-color="#e74c3c" style="background: #e74c3c;" title="Soft Red"></button>
+                                            <button class="preset-color" data-color="#f39c12" style="background: #f39c12;" title="Warm Orange"></button>
+                                            <button class="preset-color" data-color="#f1c40f" style="background: #f1c40f;" title="Gentle Yellow"></button>
+                                            <button class="preset-color" data-color="#27ae60" style="background: #27ae60;" title="Forest Green"></button>
+                                            <button class="preset-color" data-color="#3498db" style="background: #3498db;" title="Sky Blue"></button>
+                                            <button class="preset-color" data-color="#9b59b6" style="background: #9b59b6;" title="Lavender"></button>
+                                            <button class="preset-color" data-color="#95a5a6" style="background: #95a5a6;" title="Soft Gray"></button>
+                                            <button class="preset-color" data-color="#2c3e50" style="background: #2c3e50;" title="Dark Navy"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="action-buttons">
+                                    <button id="apply-changes" class="btn-primary">Apply Changes</button>
+                                    <button id="reset-image" class="btn-secondary">Reset</button>
+                                    <button id="download-image" class="btn-success">Download PNG</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="ad-space">
+            <div class="ad-placeholder">
+                <!-- AdSense ads will be placed here -->
+                <p>Advertisement Space</p>
+            </div>
+        </aside>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Your PNG</h3>
+                        <p>Drag and drop your PNG file or click to browse and select it from your device.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Select Colors</h3>
+                        <p>Choose the color you want to change and pick the new color you want to replace it with.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Apply & Download</h3>
+                        <p>Preview your changes and download the modified PNG file to your device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose ColorShift Pro?</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>100% Free</h3>
+                        <p>No registration required. Use our tool completely free with no hidden costs.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>High Quality</h3>
+                        <p>Maintain image quality while changing colors. No compression or quality loss.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Instant Results</h3>
+                        <p>See changes in real-time and download your modified image instantly.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Secure & Private</h3>
+                        <p>Your images are processed locally in your browser. We never store your files.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <h3>What file formats are supported?</h3>
+                        <p>Currently, we support PNG files only. We're working on adding support for more formats.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is there a file size limit?</h3>
+                        <p>For optimal performance, we recommend files under 10MB, but larger files may work depending on your device.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Are my images stored on your servers?</h3>
+                        <p>No, all processing happens in your browser. Your images are never uploaded to our servers.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I change multiple colors at once?</h3>
+                        <p>Currently, you can change one color at a time. Apply changes and repeat the process for multiple colors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ColorShift Pro</h3>
+                    <p>The best free online PNG color changing tool. Transform your images with ease.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#home">PNG Color Changer</a></li>
+                        <li><a href="#how-it-works">How to Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="mailto:support@colorshiftpro.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ColorShift Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
